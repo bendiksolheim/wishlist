@@ -8,14 +8,13 @@
     sudo: yes
   - name: Copy nginx config
     copy: src=nginx/wishlist.solheim.im dest=/etc/nginx/sites-enabled/wishlist.solheim.im
-    notify: reload nginx
-  - name: Stop app
-    service: name=wishlist state=stopped
+    notify: Reload nginx
   - name: Pull from github
     git: repo=https://github.com/bendiksolheim/wishlist.git dest=/var/www/wishlist
-  - name: Start service
-    service: name=wishlist state=started
+    notify: Reload app
 
   handlers:
-  - name: reload nginx
+  - name: Reload nginx
     service: name=nginx state=reloaded
+  - name: Reload app
+    service: name=wishlist state=restarted
