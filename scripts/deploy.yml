@@ -4,10 +4,10 @@
 
   tasks:
   - name: Copy upstart config
-    copy: src=scripts/upstart/wishlist.conf dest=/etc/init/wishlist.conf mode=0644 owner=root group=root
+    copy: src=upstart/wishlist.conf dest=/etc/init/wishlist.conf mode=0644 owner=root group=root
     sudo: yes
   - name: Copy nginx config
-    copy: src=scripts/nginx/wishlist.solheim.im dest=/etc/nginx/sites-enabled/wishlist.solheim.im
+    copy: src=nginx/wishlist.solheim.im dest=/etc/nginx/sites-enabled/wishlist.solheim.im
     notify: reload nginx
   - name: Stop app
     service: name=wishlist state=stopped
