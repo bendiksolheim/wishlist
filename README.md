@@ -1,2 +1,4 @@
 wishlist
 ========
+
+Deploy: `./deploy.sh`
