@@ -1,13 +1,21 @@
 - hosts: solheim.im
   remote_user: glykose
   sudo: yes
+
   tasks:
-  - name: Copy upstart file
-    copy: src=scripts/wishlist.conf dest=/etc/init/wishlist.conf mode=0644 owner=root group=root
+  - name: Copy upstart config
+    copy: src=scripts/upstart/wishlist.conf dest=/etc/init/wishlist.conf mode=0644 owner=root group=root
     sudo: yes
+  - name: Copy nginx config
+    copy: src=scripts/nginx/wishlist.solheim.im dest=/etc/nginx/sites-enabled/wishlist.solheim.im
+    notify: reload nginx
   - name: Stop app
     service: name=wishlist state=stopped
   - name: Pull from github
     git: repo=https://github.com/bendiksolheim/wishlist.git dest=/var/www/wishlist
   - name: Start service
     service: name=wishlist state=started
+
+  handlers:
+  - name: reload nginx
+    service: name=nginx state=reloaded
