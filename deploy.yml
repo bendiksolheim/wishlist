@@ -1,0 +1,8 @@
+- hosts: solheim.im
+  remote_user: glykose
+  tasks:
+  - name: Copy upstart file
+    copy: src=scripts/wishlist.conf dest=/etc/init/wishlist.conf mode=0644 owner=root group=root
+    sudo: yes
+  - name: Pull from github
+    git: repo= dest=/var/www/wishlist
