@@ -168,7 +168,7 @@ deploy.sync = function() {
   }
 
   utils.log('rsync', 'uploading changes');
-  res = deploy.cmd('rsync', '-a', '--delete', '--no-p', '--no-g', 'backend/', '--chmod=Dg+s,ug+rwx,Fug+rw,+X,o+r', '--perms', remote);
+  res = deploy.cmd('rsync', '-a', '--delete', '--no-p', '--no-g', 'public/', '--chmod=Dg+s,ug+rwx,Fug+rw,+X,o+r', '--perms', remote);
   if(res.code !== 0) utils.fatal('rsync', 'failed');
 
   utils.log('ssh', 'swapping symlink');
