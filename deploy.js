@@ -12,7 +12,7 @@ var _ = require('underscore'),
 deploy.environments = {
 
   wishlist: {
-    prod: { server: 'glykose@solheim.im', dir: '/var/www/wishlist/backend' }
+    prod: { server: 'glykose@solheim.im', dir: '/home/glykose/apps/wishlist/backend' }
   }
 
 };
