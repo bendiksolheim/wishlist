@@ -4,7 +4,7 @@ server {
         access_log /var/log/nginx/wishlist.log;
 
         location / {
-                root /var/www/wishlist/frontend;
+                root /home/glykose/apps/wishlist/frontend;
         }
 
         location /api {
