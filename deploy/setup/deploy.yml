@@ -9,9 +9,9 @@
   - name: Copy nginx config
     copy: src=nginx/wishlist.solheim.im dest=/etc/nginx/sites-enabled/wishlist.solheim.im
     notify: Reload nginx
-  - name: Pull from github
-    git: repo=https://github.com/bendiksolheim/wishlist.git dest=/var/www/wishlist
-    notify: Reload app
+  #- name: Pull from github
+  #  git: repo=https://github.com/bendiksolheim/wishlist.git dest=/var/www/wishlist
+  #  notify: Reload app
 
   handlers:
   - name: Reload nginx
