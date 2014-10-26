@@ -1,8 +1,0 @@
-- hosts: solheim.im
-  remote_user: glykose
-  sudo: yes
-  tasks:
-  - name: copy backend
-    copy: src=../../backend dest=/var/www/wishlist
-  - name: restart app
-    service: name=wishlist state=restarted

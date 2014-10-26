@@ -1,1 +1,0 @@
-ansible-playbook -i hosts backend/backend.yml -K
